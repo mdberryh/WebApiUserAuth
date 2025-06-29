@@ -27,5 +27,7 @@ This Web API uses **JWT tokens** for authentication, implementing both access an
 3. Implement rate limiting and IP blocking mechanisms.
 4. Add the password recovery feature to email users and validate it.
 5. Add TOTP two-factor authentication.
+6. Move the AuthService SQL code into a new dll library project. This will keep the postgres SQL code separate from the web API layer, making it easier to maintain and update.
+
  
 
