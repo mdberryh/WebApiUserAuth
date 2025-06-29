@@ -1,0 +1,47 @@
+
+
+
+podman pod create --name pgpod -p 9776:80 -p 5432:5432
+
+  podman run -d  --name postgres  --pod pgpod  -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=secret  -e POSTGRES_DB=mydb docker.io/library/postgres
+  
+  podman run -d --name pgadmin --pod pgpod -e  PGADMIN_DEFAULT_EMAIL=admin@example.com -e PGADMIN_DEFAULT_PASSWORD=secret docker.io/dpage/pgadmin4
+
+
+podman run -d \
+  --name postgres \
+  --pod pgpod \
+  -e POSTGRES_USER=admin \
+  -e POSTGRES_PASSWORD=secret \
+  -e POSTGRES_DB=mydb \
+  docker.io/library/postgres:16
+
+
+
+  podman run -d  --name postgres  --pod pgpod  -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=secret  -e POSTGRES_DB=mydb docker.io/library/postgres
+
+
+podman run -d \
+  --name phppgadmin \
+  --pod pgpod \
+  -e PHP_PG_ADMIN_SERVER_HOST=localhost \
+  -e PHP_PG_ADMIN_SERVER_PORT=5432 \
+  docker.io/dpage/pgadmin4
+
+
+  podman run -d --name pgadmin --pod pgpod -e  PGADMIN_DEFAULT_EMAIL=admin@example.com -e PGADMIN_DEFAULT_PASSWORD=secret docker.io/dpage/pgadmin4
+
+
+
+psql -h localhost -p 5432 -U admin -d mydb
+
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=mydb;Username=admin;Password=secret"
+  }
+}
+
+// For entityframework
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
