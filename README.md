@@ -24,3 +24,8 @@ This Web API uses **JWT tokens** for authentication, implementing both access an
 
 1. Move password hashing logic from the database to the web API layer.
 2. Add support for password "peppers" (random secret values) stored in a `secrets.json` file on the web application.
+3. Implement rate limiting and IP blocking mechanisms.
+4. Add the password recovery feature to email users and validate it.
+5. Add TOTP two-factor authentication.
+ 
+
