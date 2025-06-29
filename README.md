@@ -7,3 +7,7 @@ Note that it is not recommended to create your own user authentication, so this 
 3. Run the CreateTables.sql to create the tables and functions for the web app.
 4. update the webconfig to use the connection string.
 5. add some users to play with
+
+## Future Additions
+1. Move the user password hashing to the web api itself.
+2. Add peppers to the user's password. These peppers are stored in the secrets.json on the web app.
